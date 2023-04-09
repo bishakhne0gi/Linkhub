@@ -5,6 +5,17 @@
       "bundler": "metro"
     },
     "name": "Linker",
-    "slug": "Linker"
+    "slug": "Linker",
+    "extra": {
+      "eas": {
+        "projectId": "153b7b0e-4876-4f24-ab1a-0e9c705e57ab"
+      }
+    },
+    "android": {
+      "package": "com.ne0gi02.Linker"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ne0gi02.Linker"
+    }
   }
 }
