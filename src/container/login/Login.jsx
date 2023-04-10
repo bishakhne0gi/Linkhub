@@ -12,7 +12,7 @@ const Login = () => {
 
     return (
         <>
-            <KeyboardAvoidingView
+            <View
                 style={styles.container}
                 behavior="padding"
             >
@@ -46,13 +46,9 @@ const Login = () => {
                         <Text style={styles.buttonOutlineText}>Register</Text>
                     </TouchableOpacity>
                 </View>
-            </KeyboardAvoidingView>
+            </View>
         </>
-        /* <View>
-            <TouchableOpacity onPress={() => { router.push('/landing') }}><Text>
-                Login Page
-            </Text></TouchableOpacity>
-        </View> */
+
     )
 }
 
