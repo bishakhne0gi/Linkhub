@@ -25,7 +25,6 @@ const App = () => {
           headerTitle: ""
         }} />
 
-        {/* <ScrollView> */}
 
         <View style={{ flex: 1, padding: SIZES.medium }}>
           <Header />
@@ -40,7 +39,7 @@ const App = () => {
 
 
         </View>
-        {/* </ScrollView> */}
+
 
 
       </SafeAreaView>

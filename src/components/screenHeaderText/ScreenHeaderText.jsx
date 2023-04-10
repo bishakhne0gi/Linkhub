@@ -1,5 +1,6 @@
 import { TouchableOpacity, Text } from "react-native";
 import styles from './screenHeaderText.style'
+import { auth } from "../../../firebase";
 
 const ScreenheaderBtn = () => {
     return (
@@ -7,7 +8,7 @@ const ScreenheaderBtn = () => {
         <>
             <TouchableOpacity style={styles.btnContainer}>
                 <Text style={styles.btnText}>
-                    ne0gi02
+                    {auth.currentUser?.email}
                 </Text>
             </TouchableOpacity>
         </>
