@@ -1,7 +1,7 @@
 const COLORS = {
     primary: '#FCEC9A',
     secondary: '#690B0B',
-    tertiary: '#054d38',
+    tertiary: '#E08938',
 };
 
 const FONT = {

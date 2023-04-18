@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         marginTop: SIZES.medium,
         width: 60,
         height: 60,
-        backgroundColor: COLORS.tertiary,
+        // backgroundColor: COLORS.tertiary,
         borderRadius: SIZES.small / 1.25,
         justifyContent: "center",
         alignItems: "center",

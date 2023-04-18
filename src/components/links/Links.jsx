@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './links.style'
-import { ToastAndroid, Text, FlatList, TouchableOpacity } from 'react-native';
+import { ToastAndroid, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { View } from 'react-native';
 import CopyToClipboard from '../../assets/svgcomponent/CopyToClipBoard';
 import { SIZES } from '../../constants/theme';
@@ -42,7 +42,8 @@ const Links = ({ fielname, fieldsvg, fieldurl }) => {
 
             <View style={styles.links_container}>
                 <FlatList
-                    contentContainerStyle={{ justifyContent: 'center', flex: 1 }}
+                    contentContainerStyle={{ justifyContent: 'center' }}
+                    style={{ flex: 1 }}
                     data={link}
                     renderItem={({ item }) => {
                         const copyToClipBoard = async () => {
@@ -69,6 +70,7 @@ const Links = ({ fielname, fieldsvg, fieldurl }) => {
                     }}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
         </>

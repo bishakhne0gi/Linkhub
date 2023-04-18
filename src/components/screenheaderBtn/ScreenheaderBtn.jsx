@@ -2,8 +2,10 @@ import { TouchableOpacity, Image } from "react-native";
 import styles from './screenheaderBtn.style'
 import { auth } from "../../../firebase";
 import { useRouter } from "expo-router";
+import UserAvatar from "@muhzi/react-native-user-avatar";
+import { COLORS } from "../../constants";
 
-const ScreenheaderBtn = ({ iconUrl, dimension }) => {
+const ScreenheaderBtn = ({ dimension }) => {
 
     const route = useRouter();
     const handleSignOut = () => {
@@ -16,8 +18,12 @@ const ScreenheaderBtn = ({ iconUrl, dimension }) => {
 
         <>
             <TouchableOpacity style={styles.btnContainer} onPress={() => { handleSignOut(); console.log("Logged Out!!") }}>
-                <Image
-                    source={iconUrl}
+                <UserAvatar
+                    userName="A"
+                    backgroundColor={COLORS.tertiary}
+                    // rounded={false}
+                    size={50}
+                    active
                     resizeMode="cover"
                     style={styles.btnImg(dimension)}
 

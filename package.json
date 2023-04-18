@@ -6,6 +6,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@muhzi/react-native-user-avatar": "^1.0.7",
     "axios": "^1.3.5",
     "expo": "^48.0.7",
     "expo-clipboard": "~4.1.2",

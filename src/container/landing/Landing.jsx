@@ -14,7 +14,7 @@ const Landing = () => {
                     headerShadowVisible: false,
                     headerRight: () =>
                     (
-                        <ScreenheaderBtn iconUrl={images.profile} dimension="100%" />
+                        <ScreenheaderBtn dimension="100%" />
                     ),
                     headerLeft: () =>
                     (
