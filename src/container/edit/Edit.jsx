@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, ScrollView, TurboModuleRegistry } from 'react-native'
 import styles from './edit.style.js'
 import { db, auth } from '../../../firebase.js'
@@ -32,22 +32,24 @@ const Edit = () => {
     }
 
 
-    const [LinkContainer, setLinkContainer] = useState({ github: links.github, leetcode: links.leetcode, linkedin: links.linkedin })
-
     const editLinks = async () => {
         console.log("User id: ", user.uid);
         const userRef = doc(db, "userlink", user.uid);
         try {
             await setDoc(userRef, {
-                github: LinkContainer.github,
-                leetcode: LinkContainer.leetcode,
-                linkedin: LinkContainer.linkedin
+                github: links.github,
+                leetcode: links.leetcode,
+                linkedin: links.linkedin
             })
         } catch (err) {
             console.log(err);
         }
     }
 
+
+    useEffect(() => {
+        getLinks()
+    }, [])
     return (
         <>
             <View style={styles.container}>
@@ -72,7 +74,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" value={LinkContainer.github} onChangeText={(text) => setLinkContainer({ ...LinkContainer, github: text })} style={styles.input} />
+                            <TextInput placeholder="Your Link" value={links.github} onChangeText={(text) => setLinks({ ...links, github: text })} style={styles.input} />
                         </View>
                     </View>
 
@@ -81,14 +83,14 @@ const Edit = () => {
                     <View style={styles.edit_superContainer}>
                         <View style={styles.edit_container}>
 
-                            <TouchableOpacity style={styles.editCard_tabs} onPress={editLinks} >
+                            <TouchableOpacity style={styles.editCard_tabs}>
                                 <Text style={styles.editCard_text}>
                                     LinkedIn
                                 </Text>
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={styles.editCard_done} >
+                            <TouchableOpacity style={styles.editCard_done} onPress={editLinks}>
                                 <Text style={styles.editCard_textDone}>
                                     Done
                                 </Text>
@@ -97,7 +99,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" value={LinkContainer.leetcode} onChangeText={(text) => setLinkContainer({ ...LinkContainer, leetcode: text })} style={styles.input} />
+                            <TextInput placeholder="Your Link" value={links.leetcode} onChangeText={(text) => setLinks({ ...links, leetcode: text })} style={styles.input} />
                         </View>
 
                     </View>
@@ -108,14 +110,14 @@ const Edit = () => {
                     <View style={styles.edit_superContainer}>
                         <View style={styles.edit_container}>
 
-                            <TouchableOpacity style={styles.editCard_tabs} onPress={editLinks}>
+                            <TouchableOpacity style={styles.editCard_tabs} >
                                 <Text style={styles.editCard_text}>
                                     LeetCode
                                 </Text>
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={styles.editCard_done} >
+                            <TouchableOpacity style={styles.editCard_done} onPress={editLinks}>
                                 <Text style={styles.editCard_textDone}>
                                     Done
                                 </Text>
@@ -124,7 +126,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" value={LinkContainer.linkedin} onChangeText={(text) => setLinkContainer({ ...LinkContainer, linkedin: text })} style={styles.input} />
+                            <TextInput placeholder="Your Link" value={links.linkedin} onChangeText={(text) => setLinks({ ...links, linkedin: text })} style={styles.input} />
                         </View>
 
                     </View>
