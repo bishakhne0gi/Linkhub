@@ -12,8 +12,8 @@ _How to setup this project_
    ```
   
 3. Run
-  ```sh
-  npm start 
+   ```sh
+   npm start 
    ```
 4. Download ExpoGo in your mobile. Scan the QR
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
