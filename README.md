@@ -10,7 +10,7 @@ _How to setup this project_
    ```sh
    npm install
    ```
-  ```
+  
 3. Run
   ```sh
   npm start 
