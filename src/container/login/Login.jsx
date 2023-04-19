@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import styles from './login.style.js'
-import { app, auth } from '../../../firebase.js'
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { db, auth } from '../../../firebase.js'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { setDoc, doc } from 'firebase/firestore'
 const Login = () => {
     const router = useRouter();
 
@@ -21,17 +22,28 @@ const Login = () => {
 
         return nextPage
     }, [])
-
+    const setData = async (userLinkRef) => {
+        await setDoc(userLinkRef, {
+            github: "",
+            linkedin: "",
+            leetcode: "",
+        })
+    }
     const handleSignUp = () => {
 
         createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+
             const user = userCredential.user;
+            console.log("UID: ", user.uid);
+            const userLinkRef = doc(db, "userlink", user.uid)
+
+            setData(userLinkRef)
             console.log("Registered", user.email);
-        }).catch(err => alert(err.message))
+
+        }).catch(err => console.log(err))
     };
 
     const handleLogin = () => {
-
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const user = userCredential.user;
             console.log("Log In", user.email);
@@ -81,5 +93,3 @@ const Login = () => {
 }
 
 export default Login
-
-// onPress={() => { router.push('/landing') }}
