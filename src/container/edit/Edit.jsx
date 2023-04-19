@@ -81,7 +81,7 @@ const Edit = () => {
                     <View style={styles.edit_superContainer}>
                         <View style={styles.edit_container}>
 
-                            <TouchableOpacity style={styles.editCard_tabs} >
+                            <TouchableOpacity style={styles.editCard_tabs} onPress={editLinks} >
                                 <Text style={styles.editCard_text}>
                                     LinkedIn
                                 </Text>
@@ -97,7 +97,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" style={styles.input} />
+                            <TextInput placeholder="Your Link" value={LinkContainer.leetcode} onChangeText={(text) => setLinkContainer({ ...LinkContainer, leetcode: text })} style={styles.input} />
                         </View>
 
                     </View>
@@ -108,7 +108,7 @@ const Edit = () => {
                     <View style={styles.edit_superContainer}>
                         <View style={styles.edit_container}>
 
-                            <TouchableOpacity style={styles.editCard_tabs}>
+                            <TouchableOpacity style={styles.editCard_tabs} onPress={editLinks}>
                                 <Text style={styles.editCard_text}>
                                     LeetCode
                                 </Text>
@@ -124,7 +124,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" style={styles.input} />
+                            <TextInput placeholder="Your Link" value={LinkContainer.linkedin} onChangeText={(text) => setLinkContainer({ ...LinkContainer, linkedin: text })} style={styles.input} />
                         </View>
 
                     </View>
