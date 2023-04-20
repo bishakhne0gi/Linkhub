@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './linkCards.style'
 import { TouchableOpacity, Text } from 'react-native'
 import { useRouter } from 'expo-router'
-const LinkCards = ({ fielname, fieldurl, fieldsvg }) => {
+const LinkCards = ({ fielname, fieldsvg }) => {
 
     const router = useRouter();
 

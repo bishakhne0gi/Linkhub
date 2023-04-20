@@ -9,7 +9,7 @@ import LinkCards from '../linkcards/LinkCards';
 import LinkedIn from '../../assets/svgcomponent/LinkedIn';
 import Github from '../../assets/svgcomponent/Github';
 import * as Clipboard from 'expo-clipboard'
-const Links = ({ fielname, fieldsvg, fieldurl }) => {
+const Links = () => {
 
     const link = [
         {
@@ -55,7 +55,6 @@ const Links = ({ fielname, fieldsvg, fieldurl }) => {
 
                                 <LinkCards
                                     fielname={item.fielname}
-                                    fieldurl={item.fieldurl}
                                     fieldsvg={item.fieldsvg}
 
                                 />
