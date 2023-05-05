@@ -3,7 +3,10 @@ import { Header, Links, ScreenHeaderText, ScreenheaderBtn } from '../../componen
 import { SafeAreaView, View } from 'react-native'
 import { Stack } from 'expo-router'
 import { COLORS, SIZES, images } from '../../constants'
+
 const Landing = () => {
+
+
     return (
         <>
 

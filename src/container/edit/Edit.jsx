@@ -99,7 +99,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" value={links.leetcode} onChangeText={(text) => setLinks({ ...links, leetcode: text })} style={styles.input} />
+                            <TextInput placeholder="Your Link" value={links.linkedin} onChangeText={(text) => setLinks({ ...links, linkedin: text })} style={styles.input} />
                         </View>
 
                     </View>
@@ -126,7 +126,7 @@ const Edit = () => {
 
                         <View style={styles.inputContainer}>
 
-                            <TextInput placeholder="Your Link" value={links.linkedin} onChangeText={(text) => setLinks({ ...links, linkedin: text })} style={styles.input} />
+                            <TextInput placeholder="Your Link" value={links.leetcode} onChangeText={(text) => setLinks({ ...links, leetcode: text })} style={styles.input} />
                         </View>
 
                     </View>

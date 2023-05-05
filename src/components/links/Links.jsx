@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import styles from './links.style'
 import { ToastAndroid, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { View } from 'react-native';
@@ -9,26 +10,58 @@ import LinkCards from '../linkcards/LinkCards';
 import LinkedIn from '../../assets/svgcomponent/LinkedIn';
 import Github from '../../assets/svgcomponent/Github';
 import * as Clipboard from 'expo-clipboard'
+import { db, auth } from '../../../firebase'
+import { doc, getDoc } from 'firebase/firestore'
 const Links = () => {
 
-    const link = [
+    const [links, setLinks] = useState({ github: '', leetcode: '', linkedin: '' })
+    const user = auth.currentUser;
+
+    const getLinks = async () => {
+        console.log(user.uid);
+        try {
+            const docRef = doc(db, 'userlink', user.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                const link = docSnap.data();
+                console.log("Document data: ", link);
+                setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin })
+
+            }
+            else {
+                console.log("No such document");
+                setLinks({ github: '', leetcode: '', linkedin: '' })
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    useEffect(() => {
+        getLinks()
+    }, [links])
+
+
+    const linker = [
         {
             id: '1',
-            fielname: 'LinkedIn',
-            fieldurl: 'https://www.linkedin.com/in/bishakh-neogi-387815205/',
-            fieldsvg: <LinkedIn />,
-        },
-        {
-            id: '2',
             fielname: 'Github',
-            fieldurl: 'https://github.com/bishakhne0gi',
+            fieldurl: links.github,
             fieldsvg: <Github />,
         },
         {
+            id: '2',
+            fielname: 'Leetcode',
+            fieldurl: links.leetcode,
+            fieldsvg: <LeetCode />
+        },
+        {
             id: '3',
-            fielname: 'LeetCode',
-            fieldurl: 'https://leetcode.com/ne0gi02/',
-            fieldsvg: <LeetCode />,
+            fielname: 'LinkedIn',
+            fieldurl: links.linkedin,
+            fieldsvg: <LinkedIn />,
         },
     ];
 
@@ -44,10 +77,11 @@ const Links = () => {
                 <FlatList
                     contentContainerStyle={{ justifyContent: 'center' }}
                     style={{ flex: 1 }}
-                    data={link}
+                    data={linker}
                     renderItem={({ item }) => {
                         const copyToClipBoard = async () => {
                             await Clipboard.setStringAsync(item.fieldurl)
+                            console.log(item.fieldurl);
                         }
                         return (
 
