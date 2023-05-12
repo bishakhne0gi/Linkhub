@@ -12,7 +12,8 @@
       }
     },
     "android": {
-      "package": "com.ne0gi02.Linker"
+      "package": "com.ne0gi02.Linker",
+      "icon": "./src/assets/images"
     },
     "ios": {
       "bundleIdentifier": "com.ne0gi02.Linker"

@@ -6,7 +6,7 @@ const Header = () => {
         <>
 
             <View>
-                <Text style={styles.header}>LINKER</Text>
+                <Text style={styles.header}>LINKERS</Text>
 
             </View>
 
