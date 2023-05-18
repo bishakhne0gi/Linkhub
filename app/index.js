@@ -4,12 +4,15 @@ import { COLORS, SIZES, images } from "../src/constants";
 import { Landing, Login } from "../src/container";
 import LottieView from 'lottie-react-native'
 import { Header, ScreenHeaderText, ScreenheaderBtn } from "../src/components";
-
+import * as SplashScreen from 'expo-splash-screen'
 
 const App = () => {
 
   const router = useRouter();
 
+
+  SplashScreen.preventAutoHideAsync();
+  setTimeout(SplashScreen.hideAsync, 2000);
   return (
     <>
 

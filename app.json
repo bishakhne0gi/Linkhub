@@ -1,5 +1,10 @@
 {
   "expo": {
+    "icon": "./src/assets/images/profile_image.jpg",
+    "splash": {
+      "image": "./src/assets/images/profile_image.jpg",
+      "backgroundColor": "#FCEC9A"
+    },
     "scheme": "acme",
     "web": {
       "bundler": "metro"
@@ -12,8 +17,7 @@
       }
     },
     "android": {
-      "package": "com.ne0gi02.Linker",
-      "icon": "./src/assets/images"
+      "package": "com.ne0gi02.Linker"
     },
     "ios": {
       "bundleIdentifier": "com.ne0gi02.Linker"
