@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     {
         marginTop: SIZES.xLarge,
         marginBottom: SIZES.xLarge,
-        // padding: SIZES.xLarge,
         backgroundColor: COLORS.tertiary,
         borderRadius: SIZES.xSmall,
         alignItems: "center",
@@ -42,18 +41,20 @@ const styles = StyleSheet.create({
         color: COLORS.primary,
         fontSize: SIZES.xLarge,
         textAlign: "center",
-        fontStyle: FONT.bold,
+        // fontStyle: "italic",
+        fontWeight: "bold"
+
     },
     editCard_textDone:
     {
-        color: COLORS.secondary,
+        color: COLORS.primary,
         fontSize: SIZES.medium,
         textAlign: "center",
-        fontStyle: FONT.bold,
+        fontWeight: "bold"
     },
     inputContainer: {
         width: '100%',
-
+        fontWeight: "500"
     },
     input: {
         flex: 1,

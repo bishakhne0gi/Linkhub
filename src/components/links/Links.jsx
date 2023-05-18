@@ -18,13 +18,13 @@ const Links = () => {
     const user = auth.currentUser;
 
     const getLinks = async () => {
-        console.log(user.uid);
+        // console.log(user.uid);
         try {
             const docRef = doc(db, 'userlink', user.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const link = docSnap.data();
-                console.log("Document data: ", link);
+                // console.log("Document data: ", link);
                 setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin })
 
             }

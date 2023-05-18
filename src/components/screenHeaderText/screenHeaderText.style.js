@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: SIZES.medium,
         borderRadius: SIZES.small / 1.25,
+        fontWeight: "600",
     },
 });
 

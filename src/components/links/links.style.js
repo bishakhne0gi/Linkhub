@@ -16,6 +16,7 @@ const style = StyleSheet.create(
             marginTop: SIZES.medium,
             padding: SIZES.xLarge,
             backgroundColor: COLORS.secondary,
+
             borderRadius: SIZES.xSmall,
             flexDirection: "row",
             justifyContent: "space-around",
@@ -27,7 +28,6 @@ const style = StyleSheet.create(
             color: COLORS.primary,
             fontSize: SIZES.xLarge,
             textAlign: "center",
-            fontStyle: FONT.bold,
         }
 
     }

@@ -20,7 +20,8 @@ const style = StyleSheet.create(
             color: COLORS.primary,
             fontSize: SIZES.xLarge,
             textAlign: "center",
-            fontStyle: FONT.bold,
+            // fontFamily: FONT.bold,
+            fontWeight: '700'
         }
     }
 )

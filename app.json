@@ -1,9 +1,8 @@
 {
   "expo": {
-    "icon": "./src/assets/images/profile_image.jpg",
+    "icon": "./src/assets/images/logo.png",
     "splash": {
-      "image": "./src/assets/images/profile_image.jpg",
-      "backgroundColor": "#FCEC9A"
+      "backgroundColor": "#0D1B1E"
     },
     "scheme": "acme",
     "web": {

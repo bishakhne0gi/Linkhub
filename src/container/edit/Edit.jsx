@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, TextInput, ScrollView, TurboModuleRegistry } from 'react-native'
+import { ToastAndroid, View, Text, TouchableOpacity, TextInput, ScrollView, TurboModuleRegistry } from 'react-native'
 import styles from './edit.style.js'
 import { db, auth } from '../../../firebase.js'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
@@ -17,7 +17,7 @@ const Edit = () => {
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const link = docSnap.data();
-                console.log("Document data: ", link);
+                // console.log("Document data: ", link);
                 setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin })
 
             }
@@ -50,6 +50,11 @@ const Edit = () => {
     useEffect(() => {
         getLinks()
     }, [])
+
+
+    const showToast = () => {
+        ToastAndroid.show('Edited!', ToastAndroid.SHORT);
+    }
     return (
         <>
             <View style={styles.container}>
@@ -65,7 +70,7 @@ const Edit = () => {
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={styles.editCard_done} onPress={editLinks}>
+                            <TouchableOpacity style={styles.editCard_done} onPress={() => { editLinks(); showToast() }}>
                                 <Text style={styles.editCard_textDone}>
                                     Done
                                 </Text>
@@ -90,7 +95,7 @@ const Edit = () => {
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={styles.editCard_done} onPress={editLinks}>
+                            <TouchableOpacity style={styles.editCard_done} onPress={() => { editLinks(); showToast() }}>
                                 <Text style={styles.editCard_textDone}>
                                     Done
                                 </Text>
@@ -117,7 +122,7 @@ const Edit = () => {
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={styles.editCard_done} onPress={editLinks}>
+                            <TouchableOpacity style={styles.editCard_done} onPress={() => { editLinks(); showToast() }}>
                                 <Text style={styles.editCard_textDone}>
                                     Done
                                 </Text>

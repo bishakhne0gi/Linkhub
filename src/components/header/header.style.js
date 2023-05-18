@@ -6,9 +6,11 @@ const styles = StyleSheet.create(
         header:
         {
             color: COLORS.tertiary,
-            fontFamily: FONT.bold,
+            // fontFamily: FONT.medium,
+            fontStyle: "normal",
             fontSize: 50,
-            textAlign: "center"
+            textAlign: "center",
+            fontWeight: "bold"
         }
     }
 )
