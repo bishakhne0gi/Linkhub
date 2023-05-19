@@ -68,13 +68,13 @@ const Links = () => {
         {
             id: '4',
             fielname: 'Hashnode',
-            fieldurl: links.linkedin,
+            fieldurl: links.hashnode,
             fieldsvg: <Hashnode />,
         },
         {
             id: '5',
             fielname: 'Portfolio',
-            fieldurl: links.linkedin,
+            fieldurl: links.personal,
             fieldsvg: <Personal />,
         },
     ];

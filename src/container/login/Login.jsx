@@ -27,8 +27,8 @@ const Login = () => {
             github: "",
             linkedin: "",
             leetcode: "",
-            hasnode: "",
-            personal: ""
+            hashnode: "",
+            personal: "",
         })
     }
     const handleSignUp = () => {
