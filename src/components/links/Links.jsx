@@ -8,29 +8,31 @@ import { SIZES } from '../../constants/theme';
 import LeetCode from '../../assets/svgcomponent/LeetCode';
 import LinkCards from '../linkcards/LinkCards';
 import LinkedIn from '../../assets/svgcomponent/LinkedIn';
+import Hashnode from '../../assets/svgcomponent/Hashnode';
+import Personal from '../../assets/svgcomponent/Personal';
 import Github from '../../assets/svgcomponent/Github';
 import * as Clipboard from 'expo-clipboard'
 import { db, auth } from '../../../firebase'
 import { doc, getDoc } from 'firebase/firestore'
 const Links = () => {
 
-    const [links, setLinks] = useState({ github: '', leetcode: '', linkedin: '' })
+    const [links, setLinks] = useState({ github: '', leetcode: '', linkedin: '', hashnode: '', personal: '' })
     const user = auth.currentUser;
 
     const getLinks = async () => {
         // console.log(user.uid);
         try {
-            const docRef = doc(db, 'userlink', user.uid);
+            const docRef = doc(db, 'userinfo', user.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const link = docSnap.data();
-                // console.log("Document data: ", link);
-                setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin })
+                console.log("Document data: ", link);
+                setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin, hashnode: link.hashnode, personal: link.personal })
 
             }
             else {
                 console.log("No such document");
-                setLinks({ github: '', leetcode: '', linkedin: '' })
+                setLinks({ github: '', leetcode: '', linkedin: '', hashnode: '', personal: '' })
             }
         }
         catch (err) {
@@ -62,6 +64,18 @@ const Links = () => {
             fielname: 'LinkedIn',
             fieldurl: links.linkedin,
             fieldsvg: <LinkedIn />,
+        },
+        {
+            id: '4',
+            fielname: 'Hashnode',
+            fieldurl: links.linkedin,
+            fieldsvg: <Hashnode />,
+        },
+        {
+            id: '5',
+            fielname: 'Portfolio',
+            fieldurl: links.linkedin,
+            fieldsvg: <Personal />,
         },
     ];
 

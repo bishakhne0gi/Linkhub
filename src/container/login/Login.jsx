@@ -27,6 +27,8 @@ const Login = () => {
             github: "",
             linkedin: "",
             leetcode: "",
+            hasnode: "",
+            personal: ""
         })
     }
     const handleSignUp = () => {
@@ -35,7 +37,7 @@ const Login = () => {
 
             const user = userCredential.user;
             console.log("UID: ", user.uid);
-            const userLinkRef = doc(db, "userlink", user.uid)
+            const userLinkRef = doc(db, "userinfo", user.uid)
 
             setData(userLinkRef)
             console.log("Registered", user.email);

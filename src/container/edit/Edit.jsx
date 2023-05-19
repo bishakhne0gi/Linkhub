@@ -6,24 +6,24 @@ import { doc, getDoc, setDoc } from 'firebase/firestore'
 
 const Edit = () => {
 
-    const [links, setLinks] = useState({ github: '', leetcode: '', linkedin: '' })
+    const [links, setLinks] = useState({ github: '', leetcode: '', linkedin: '', hashnode: '', personal: '' })
     const user = auth.currentUser;
 
 
     const getLinks = async () => {
         console.log(user.uid);
         try {
-            const docRef = doc(db, 'userlink', user.uid);
+            const docRef = doc(db, 'userinfo', user.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 const link = docSnap.data();
                 // console.log("Document data: ", link);
-                setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin })
+                setLinks({ github: link.github, leetcode: link.leetcode, linkedin: link.linkedin, hashnode: link.hashnode, personal: link.personal })
 
             }
             else {
                 console.log("No such document");
-                setLinks({ github: '', leetcode: '', linkedin: '' })
+                setLinks({ github: '', leetcode: '', linkedin: '', hashnode: '', personal: '' })
             }
         }
         catch (err) {
@@ -34,12 +34,14 @@ const Edit = () => {
 
     const editLinks = async () => {
         console.log("User id: ", user.uid);
-        const userRef = doc(db, "userlink", user.uid);
+        const userRef = doc(db, "userinfo", user.uid);
         try {
             await setDoc(userRef, {
                 github: links.github,
                 leetcode: links.leetcode,
-                linkedin: links.linkedin
+                linkedin: links.linkedin,
+                hashnode: links.hashnode,
+                personal: links.personal
             })
         } catch (err) {
             console.log(err);
@@ -132,6 +134,61 @@ const Edit = () => {
                         <View style={styles.inputContainer}>
 
                             <TextInput placeholder="Your Link" value={links.leetcode} onChangeText={(text) => setLinks({ ...links, leetcode: text })} style={styles.input} />
+                        </View>
+
+                    </View>
+
+
+
+                    <View style={styles.edit_superContainer}>
+                        <View style={styles.edit_container}>
+
+                            <TouchableOpacity style={styles.editCard_tabs} >
+                                <Text style={styles.editCard_text}>
+                                    Hashnode
+                                </Text>
+                            </TouchableOpacity>
+
+
+                            <TouchableOpacity style={styles.editCard_done} onPress={() => { editLinks(); showToast() }}>
+                                <Text style={styles.editCard_textDone}>
+                                    Done
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.inputContainer}>
+
+                            <TextInput placeholder="Your Link" value={links.hashnode} onChangeText={(text) => setLinks({ ...links, hashnode: text })} style={styles.input} />
+                        </View>
+
+                    </View>
+
+
+
+
+
+
+                    <View style={styles.edit_superContainer}>
+                        <View style={styles.edit_container}>
+
+                            <TouchableOpacity style={styles.editCard_tabs} >
+                                <Text style={styles.editCard_text}>
+                                    Portfolio
+                                </Text>
+                            </TouchableOpacity>
+
+
+                            <TouchableOpacity style={styles.editCard_done} onPress={() => { editLinks(); showToast() }}>
+                                <Text style={styles.editCard_textDone}>
+                                    Done
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.inputContainer}>
+
+                            <TextInput placeholder="Your Link" value={links.personal} onChangeText={(text) => setLinks({ ...links, personal: text })} style={styles.input} />
                         </View>
 
                     </View>
