@@ -1,6 +1,4 @@
-### Installation
-
-_How to setup this project_
+### 🚀 Installation and Project Setup
 
 1. Clone the repo
 
@@ -22,7 +20,7 @@ _How to setup this project_
 
 4. Download ExpoGo in your mobile. Scan the QR
 
-### Downloading the apk
+### 🤝 Downloading the apk
 
 1. Visit the link
 
