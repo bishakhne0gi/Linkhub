@@ -30,8 +30,6 @@ https://expo.dev/accounts/ne0gi02/projects
 
 2. Scan the QR Code
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### 🤝 Build the apk for android
 
 ```sh
