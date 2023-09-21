@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: SIZES.xxxLarge,
     },
+    forgetButton:
+    {
+        color: COLORS.secondary,
+        alignItems: "center",
+        padding: SIZES.small
+    },
     button: {
         backgroundColor: COLORS.secondary,
         width: '100%',

@@ -4,7 +4,7 @@ import React from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import styles from './login.style.js'
 import { db, auth } from '../../../firebase.js'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth'
 import { setDoc, doc } from 'firebase/firestore'
 const Login = () => {
     const router = useRouter();
@@ -52,6 +52,18 @@ const Login = () => {
         }).catch(err => alert(err.message))
     };
 
+
+    const resetPassword = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("Email has been sent!!");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    };
     return (
         <>
             <View
@@ -72,6 +84,9 @@ const Login = () => {
                         style={styles.input}
                         secureTextEntry
                     />
+                    <TouchableOpacity onPress={resetPassword} style={styles.forgetButton}>
+                        <Text style={styles.buttonOutlineText}>Forgot Password?</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.buttonContainer}>
